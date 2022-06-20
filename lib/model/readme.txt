@@ -1,0 +1,1 @@
+this directory contains MODEL - how the data is parsed to view section .. ?

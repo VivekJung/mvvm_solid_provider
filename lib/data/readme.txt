@@ -1,0 +1,1 @@
+this directory contains DATA related - APIS, getter-setter, db connections -handling every thing related with data

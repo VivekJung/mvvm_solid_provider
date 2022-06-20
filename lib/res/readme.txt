@@ -1,0 +1,1 @@
+this directory contains RESOURCES - colors, constant values, components, urls and more
