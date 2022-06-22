@@ -21,8 +21,21 @@ class NetworkApiService extends BaseApiServices {
   }
 
   @override
-  Future getPostApiResponse(String url) {
-    throw UnimplementedError();
+  Future getPostApiResponse(String url, dynamic data) async {
+    //post api always contents data.. what data is to be posted
+    dynamic responseJson;
+    try {
+      final response = await http
+          .post(
+            Uri.parse(url),
+            body: data,
+          )
+          .timeout(const Duration(seconds: 10));
+      responseJson = returnResponse(response);
+    } on SocketException {
+      throw FetchDataException("No internet connection");
+    }
+    return responseJson;
   }
 
   dynamic returnResponse(http.Response response) {
