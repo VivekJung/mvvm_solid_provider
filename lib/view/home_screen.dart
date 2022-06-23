@@ -8,10 +8,28 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('MVVM-SOLID-PROVIDER'),
-      ),
-      body: Container(),
-    );
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          title: const Text('Home screen'),
+          elevation: 0,
+          // this need to be set
+          backgroundColor: Colors.transparent,
+          // create gradient background color
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [
+                    Color.fromARGB(255, 55, 134, 31).withOpacity(0.5),
+                    Color.fromARGB(255, 80, 150, 40).withOpacity(0.7)
+                  ]),
+            ),
+          ),
+          actions: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
+          ],
+        ),
+        body: Container());
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvm_solid_provider/utils/routes.dart';
-import 'package:mvm_solid_provider/utils/routes_name.dart';
+import 'package:mvm_solid_provider/utils/routes/routes.dart';
+import 'package:mvm_solid_provider/utils/routes/routes_name.dart';
 import 'package:mvm_solid_provider/view/login_screen.dart';
 import 'package:mvm_solid_provider/view/home_screen.dart';
 
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'MVVM-SOLID-PROVIDER',
       theme: ThemeData(
         primarySwatch: Colors.blue,

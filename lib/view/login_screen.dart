@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvm_solid_provider/utils/routes_name.dart';
+import 'package:mvm_solid_provider/utils/routes/routes_name.dart';
+import 'package:mvm_solid_provider/utils/utilities.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,16 +14,17 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Column(
         children: [
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, RoutesName.home);
+                // Utils.toastMessage('No internet connection');
+                Utils.flushBarErrorMessage('No internet', context);
+                // Utils.snackBar('No internet', context);
               },
-              icon: Icon(Icons.ads_click)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.cloud_circle)),
+              icon: const Icon(Icons.ads_click)),
         ],
       ),
     );
