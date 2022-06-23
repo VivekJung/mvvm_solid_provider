@@ -3,6 +3,8 @@ import 'package:mvm_solid_provider/res/app_colors.dart';
 import 'package:mvm_solid_provider/res/components/round_button.dart';
 import 'package:mvm_solid_provider/utils/routes/routes_name.dart';
 import 'package:mvm_solid_provider/utils/utilities.dart';
+import 'package:mvm_solid_provider/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -34,6 +36,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     final ht = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -92,6 +95,7 @@ class _LoginViewState extends State<LoginView> {
             //Login
             RoundButton(
               text: "Login",
+              isLoading: authViewModel.isLoading,
               onPress: () {
                 if (_emailController.text.isEmpty) {
                   Utils.flushBarErrorMessage(
@@ -102,11 +106,20 @@ class _LoginViewState extends State<LoginView> {
                 } else if (_passwordController.text.length < 6) {
                   Utils.flushBarErrorMessage(
                       "Please enter 6 charactes password", context);
+                } else {
+                  Map data = {
+                    // 'email': _emailController.text,
+                    // 'password': _passwordController.text
+                    'email': 'eve.holt@reqres.in',
+                    'password': 'cityslicka',
+                  };
+                  authViewModel.loginApi(data, context);
+                  Navigator.pushNamed(context, RoutesName.home);
                 }
               },
             ),
             //SignUp
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             RoundButton(
               text: "Sign Up",
               bgColor: AppColors.buttonColor2,

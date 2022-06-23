@@ -33,7 +33,7 @@ class Utils {
         forwardAnimationCurve: Curves.decelerate,
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         message: message,
-        duration: const Duration(seconds: 1),
+        duration: const Duration(seconds: 2),
         backgroundColor: Colors.red.shade600,
         reverseAnimationCurve: Curves.easeInOut,
         positionOffset: 20,
