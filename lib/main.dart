@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvm_solid_provider/utils/routes/routes.dart';
 import 'package:mvm_solid_provider/utils/routes/routes_name.dart';
-import 'package:mvm_solid_provider/view/login_screen.dart';
+import 'package:mvm_solid_provider/view/login_view.dart';
 import 'package:mvm_solid_provider/view/home_screen.dart';
 
 void main() {

@@ -4,6 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
+  //focus change in form field
+  static void fieldFocusChange(
+    BuildContext context,
+    FocusNode currentNode,
+    FocusNode nextNode,
+  ) {
+    currentNode.unfocus();
+    FocusScope.of(context).requestFocus(nextNode);
+  }
+
   //fluttertoast
   static toastMessage(String message) {
     Fluttertoast.showToast(
@@ -23,7 +33,7 @@ class Utils {
         forwardAnimationCurve: Curves.decelerate,
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         message: message,
-        duration: const Duration(seconds: 2),
+        duration: const Duration(seconds: 1),
         backgroundColor: Colors.red.shade600,
         reverseAnimationCurve: Curves.easeInOut,
         positionOffset: 20,

@@ -1,4 +1,4 @@
-this directory contains UTILITIES - repeated Widgets or a function perhaps
+this directory contains UTILITIES - repeated app functions
     - this is to avoid duplication of code
     - mostly used by following KISS principle with SOLID principle
 
