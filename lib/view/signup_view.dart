@@ -6,14 +6,14 @@ import 'package:mvm_solid_provider/utils/utilities.dart';
 import 'package:mvm_solid_provider/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class SignupView extends StatefulWidget {
+  const SignupView({Key? key}) : super(key: key);
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<SignupView> createState() => _SignupViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignupViewState extends State<SignupView> {
   //using provider to show password
   final ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
 
@@ -40,7 +40,8 @@ class _LoginViewState extends State<LoginView> {
     final ht = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Sign Up'),
+        backgroundColor: Colors.deepOrange,
         centerTitle: true,
       ),
       body: SafeArea(
@@ -94,8 +95,9 @@ class _LoginViewState extends State<LoginView> {
             SizedBox(height: ht * 0.1),
             //Login
             RoundButton(
-              text: "Login",
-              isLoading: authViewModel.isLoading,
+              text: "Sign up with us",
+              bgColor: Colors.deepOrange,
+              isLoading: authViewModel.isLoadingSignUp,
               onPress: () {
                 if (_emailController.text.isEmpty) {
                   Utils.flushBarErrorMessage(
@@ -110,10 +112,11 @@ class _LoginViewState extends State<LoginView> {
                   Map data = {
                     // 'email': _emailController.text,
                     // 'password': _passwordController.text
-                    'email': 'eve.holt@reqres.in',
-                    'password': 'cityslicka',
+                    'email': 'eve.holt@reqre.in',
+                    'password': 'pisto',
                   };
-                  authViewModel.loginApi(data, context);
+                  authViewModel.signUpApi(data, context);
+
                   Navigator.pushNamed(context, RoutesName.home);
                 }
               },
@@ -121,11 +124,11 @@ class _LoginViewState extends State<LoginView> {
             //SignUp
             const SizedBox(height: 20),
             RoundButton(
-              text: "Not registered yet ? Sign Up",
+              text: "Already have an account? Login",
               bgColor: Colors.transparent,
               txtColor: AppColors.blackColor,
               onPress: () {
-                Navigator.pushNamed(context, RoutesName.signup);
+                Navigator.popAndPushNamed(context, RoutesName.login);
               },
             ),
           ],

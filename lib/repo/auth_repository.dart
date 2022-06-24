@@ -4,7 +4,7 @@ import 'package:mvm_solid_provider/res/app_urls.dart';
 
 class AuthRepository {
   //we are managing APIs here
-  BaseApiServices _apiServices = NetworkApiService();
+  final BaseApiServices _apiServices = NetworkApiService();
 
   Future<dynamic> loginApi(dynamic data) async {
     try {
@@ -16,7 +16,7 @@ class AuthRepository {
     }
   }
 
-  Future<dynamic> registerApi(dynamic data) async {
+  Future<dynamic> signUpApi(dynamic data) async {
     try {
       dynamic response =
           await _apiServices.getPostApiResponse(AppUrl.registerUrl, data);

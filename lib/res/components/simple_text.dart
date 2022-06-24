@@ -5,12 +5,14 @@ class SimpleText extends StatelessWidget {
   final String text;
 
   final double? txtSize;
+  final Color? txtColor;
   final FontWeight? fontWeight;
   const SimpleText({
     Key? key,
     required this.text,
     this.txtSize,
     this.fontWeight,
+    this.txtColor,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class SimpleText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color: AppColors.whiteColor,
+        color: txtColor ?? AppColors.whiteColor,
         fontSize: txtSize ?? 16,
         fontWeight: fontWeight ?? FontWeight.normal,
       ),

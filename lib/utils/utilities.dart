@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
+  Color? color;
   //focus change in form field
   static void fieldFocusChange(
     BuildContext context,
@@ -26,7 +27,8 @@ class Utils {
 
   //flushbar
 
-  static void flushBarErrorMessage(String message, BuildContext context) {
+  static void flushBarErrorMessage(
+      String message, BuildContext context, Color? color) {
     showFlushbar(
       context: context,
       flushbar: Flushbar(
@@ -34,7 +36,7 @@ class Utils {
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         message: message,
         duration: const Duration(seconds: 2),
-        backgroundColor: Colors.red.shade600,
+        backgroundColor: color ?? Colors.red.shade600,
         reverseAnimationCurve: Curves.easeInOut,
         positionOffset: 20,
         flushbarPosition: FlushbarPosition.TOP,
