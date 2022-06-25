@@ -11,13 +11,15 @@ class SplashServices {
   void checkAuthentication(BuildContext context) async {
     //This function gives all value that we get from user model
     getUserData().then((value) async {
-      log(value.toString());
+      log('SPLASH SERVICE ${value.token}');
       if (value.token == null || value.token == '') {
-        Future.delayed(const Duration(seconds: 2));
-        Navigator.pushNamed(context, RoutesName.login);
+        var pushNamedLogin = Navigator.pushNamed(context, RoutesName.login);
+        await Future.delayed(const Duration(seconds: 2));
+        pushNamedLogin;
       } else {
-        Future.delayed(const Duration(seconds: 2));
-        Navigator.pushNamed(context, RoutesName.home);
+        var pushNamedHome = Navigator.pushNamed(context, RoutesName.home);
+        await Future.delayed(const Duration(seconds: 2));
+        pushNamedHome;
       }
     }).onError((error, stackTrace) {
       log('SPLASH SERVICES :: $error');

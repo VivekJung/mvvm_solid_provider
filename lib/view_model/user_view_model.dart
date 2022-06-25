@@ -24,6 +24,7 @@ class UserViewModel with ChangeNotifier {
 
   Future<bool> removeUserCachedData() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
+    sp.remove('token');
     return sp.clear(); // gives true once preference for app is cleared.
   }
 }

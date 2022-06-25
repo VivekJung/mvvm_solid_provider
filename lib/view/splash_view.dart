@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvm_solid_provider/view/services/splash_services.dart';
+import 'package:mvm_solid_provider/res/components/simple_text.dart';
+import 'package:mvm_solid_provider/view_model/services/splash_services.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -19,22 +20,28 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(
-          color: Colors.deepOrange,
-        ),
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Center(
+            child: SimpleText(
+              text: "SPLASH SCREEN",
+              fontWeight: FontWeight.w300,
+              txtColor: Colors.green,
+              txtSize: 36,
+            ),
+          ),
+          // Center(
+          //   child: CircularProgressIndicator(
+          //     color: Colors.green,
+          //   ),
+          // ),
+        ],
       ),
     );
   }
 }
 
-// TweenAnimationBuilder<double>(
-//               tween: Tween<double>(begin: 0.0, end: 1),
-//               duration: const Duration(milliseconds: 2),
-//               builder: (context, val, _) {
-//                 return CircularProgressIndicator(
-//                   value: val,
-//                   color: Colors.deepOrange,
-//                 );
-//               })),
+// 

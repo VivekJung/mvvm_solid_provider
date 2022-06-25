@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mvm_solid_provider/utils/export_utils_files.dart';
 import 'package:mvm_solid_provider/view_model/user_view_model.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final userPref = Provider.of<UserViewModel>(context);
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -30,10 +32,11 @@ class HomeScreen extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  UserViewModel().removeUserCachedData();
-                  Navigator.pushNamed(context, RoutesName.splash);
+                  userPref.removeUserCachedData().then((value) {
+                    Navigator.pushNamed(context, RoutesName.splash);
+                  });
                 },
-                icon: const Icon(Icons.settings))
+                icon: const Icon(Icons.logout_sharp))
           ],
         ),
         body: Container());
