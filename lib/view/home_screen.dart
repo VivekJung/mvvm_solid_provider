@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:mvm_solid_provider/utils/export_utils_files.dart';
+import 'package:mvm_solid_provider/view_model/user_view_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,13 +21,19 @@ class HomeScreen extends StatelessWidget {
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [
-                    Color.fromARGB(255, 55, 134, 31).withOpacity(0.5),
-                    Color.fromARGB(255, 80, 150, 40).withOpacity(0.7)
+                    const Color.fromARGB(255, 80, 150, 40).withOpacity(0.7),
+                    const Color.fromARGB(255, 55, 134, 31).withOpacity(0.5),
+                    const Color.fromARGB(255, 80, 150, 40).withOpacity(0.7)
                   ]),
             ),
           ),
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
+            IconButton(
+                onPressed: () {
+                  UserViewModel().removeUserCachedData();
+                  Navigator.pushNamed(context, RoutesName.splash);
+                },
+                icon: const Icon(Icons.settings))
           ],
         ),
         body: Container());

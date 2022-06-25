@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mvm_solid_provider/res/app_colors.dart';
-import 'package:mvm_solid_provider/res/components/round_button.dart';
-import 'package:mvm_solid_provider/utils/routes/routes_name.dart';
-import 'package:mvm_solid_provider/utils/utilities.dart';
+import 'package:mvm_solid_provider/res/export_res_files.dart';
+import 'package:mvm_solid_provider/utils/export_utils_files.dart';
 import 'package:mvm_solid_provider/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
 

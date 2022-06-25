@@ -12,3 +12,5 @@ this directory contains UTILITIES - repeated app functions
         - this is an object oriented design
         - main goal is to reduce dependencies so that while editing one part, another remains unaffected.
         - making agile software, build adaptive (scalable), effective
+
+* All files are exported via utils.dart file.

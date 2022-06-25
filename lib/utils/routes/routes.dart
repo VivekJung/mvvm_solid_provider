@@ -1,10 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:mvm_solid_provider/utils/routes/routes_name.dart';
-import 'package:mvm_solid_provider/view/home_screen.dart';
-import 'package:mvm_solid_provider/view/login_view.dart';
-import 'package:mvm_solid_provider/view/signup_view.dart';
+import 'package:mvm_solid_provider/view/export_view_screens.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -20,6 +16,9 @@ class Routes {
       case RoutesName.signup:
         return MaterialPageRoute(
             builder: (BuildContext context) => const SignupView());
+      case RoutesName.splash:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const SplashView());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(

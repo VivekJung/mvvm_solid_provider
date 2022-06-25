@@ -114,7 +114,7 @@ class _LoginViewState extends State<LoginView> {
                     'password': 'cityslicka',
                   };
                   authViewModel.loginApi(data, context);
-                  Navigator.pushNamed(context, RoutesName.home);
+                  Navigator.pushNamed(context, RoutesName.splash);
                 }
               },
             ),
