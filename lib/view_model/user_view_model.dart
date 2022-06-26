@@ -8,7 +8,8 @@ class UserViewModel with ChangeNotifier {
   Future<bool> saveUserToken(UserModel user) async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     // put key as what you want to store and value will be comin from user model.
-    sp.setString('token', user.token.toString());
+    var token = sp.setString('token', user.token.toString());
+    log("saveuser ::$token");
     notifyListeners(); // whenever this function is called, changes will be notified.
 
     return true;
@@ -19,12 +20,13 @@ class UserViewModel with ChangeNotifier {
 
     //make sure the key (here 'token') must be same as above.
     final String? token = sp.getString('token');
+    log("GETUSER ::$token");
     return UserModel(token: token);
   }
 
   Future<bool> removeUserCachedData() async {
     final SharedPreferences sp = await SharedPreferences.getInstance();
     sp.remove('token');
-    return sp.clear(); // gives true once preference for app is cleared.
+    return true; // gives true once preference for app is cleared.
   }
 }

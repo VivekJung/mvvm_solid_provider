@@ -1,9 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:mvm_solid_provider/model/user_model.dart';
 import 'package:mvm_solid_provider/repo/auth_repository.dart';
 import 'package:mvm_solid_provider/utils/routes/routes_name.dart';
 import 'package:mvm_solid_provider/utils/utilities.dart';
+import 'package:mvm_solid_provider/view_model/user_view_model.dart';
+import 'package:provider/provider.dart';
 
 class AuthViewModel with ChangeNotifier {
   final _myRepo = AuthRepository();
@@ -22,19 +25,28 @@ class AuthViewModel with ChangeNotifier {
 
     _myRepo.loginApi(data).then((value) {
       setLoading(false);
+      // saving usertoken with provider.. listen is false! coz we don't need to rebuild the widget here.
+      final userPreferences =
+          Provider.of<UserViewModel>(context, listen: false);
+      userPreferences.saveUserToken(
+        UserModel(token: value['token'].toString()),
+      );
+      //
       Utils.flushBarErrorMessage('Success login', context, null);
-      Navigator.pushNamed(context, RoutesName.home);
-      log(value.toString());
+
+      Navigator.pushNamed(context, RoutesName.splash);
+      log('LOGIN API:: $value');
     }).onError((error, stackTrace) {
       setLoading(false);
       Utils.flushBarErrorMessage('$error', context, null);
-      log(error.toString());
+      log('Error in LOGINAPI:: $error');
     });
   }
 
   //signup
   bool _isLoadingSignUp = false;
   bool get isLoadingSignUp => _isLoadingSignUp;
+
   setSignUpLoading(bool val) {
     _isLoadingSignUp = val;
     notifyListeners();

@@ -14,8 +14,8 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   void initState() {
-    splashServices.checkAuthentication(context);
     super.initState();
+    splashServices.checkAuthentication(context);
   }
 
   @override
@@ -33,11 +33,6 @@ class _SplashViewState extends State<SplashView> {
               txtSize: 36,
             ),
           ),
-          // Center(
-          //   child: CircularProgressIndicator(
-          //     color: Colors.green,
-          //   ),
-          // ),
         ],
       ),
     );
