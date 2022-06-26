@@ -34,7 +34,7 @@ class AuthViewModel with ChangeNotifier {
       //
       Utils.flushBarErrorMessage('Success login', context, null);
 
-      Navigator.pushNamed(context, RoutesName.splash);
+      Navigator.popAndPushNamed(context, RoutesName.splash);
       log('LOGIN API:: $value');
     }).onError((error, stackTrace) {
       setLoading(false);

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -14,13 +15,15 @@ class SplashServices {
       log('SPLASH SERVICE :: token value:: ${value.token}');
 
       if (value.token.toString() == '' || value.token == null) {
-        var route = Navigator.popAndPushNamed(context, RoutesName.login);
-        await Future.delayed(const Duration(seconds: 2));
-        route;
+        //calling screen after delay using Timer class
+        Timer(const Duration(seconds: 2), () {
+          Navigator.popAndPushNamed(context, RoutesName.login);
+        });
       } else {
-        var route = Navigator.popAndPushNamed(context, RoutesName.home);
-        await Future.delayed(const Duration(seconds: 2));
-        route;
+        //calling screen after delay using future.delayed class
+        await Future.delayed(const Duration(seconds: 2), () {
+          Navigator.popAndPushNamed(context, RoutesName.home);
+        });
       }
     }).onError((error, stackTrace) {
       log('SPLASH SERVICES :: error :: $error');

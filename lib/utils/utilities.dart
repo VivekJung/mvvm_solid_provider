@@ -5,6 +5,16 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
   Color? color;
+
+  //Getting movie ratings
+  static double avgRating(List<int> rating) {
+    var avgRating = 0;
+    for (int i = 0; i < rating.length; i++) {
+      avgRating += rating[i];
+    }
+    return double.parse((avgRating / rating.length).toStringAsFixed(1));
+  }
+
   //focus change in form field
   static void fieldFocusChange(
     BuildContext context,

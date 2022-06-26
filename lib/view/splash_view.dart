@@ -24,8 +24,8 @@ class _SplashViewState extends State<SplashView> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Center(
+        children: [
+          const Center(
             child: SimpleText(
               text: "SPLASH SCREEN",
               fontWeight: FontWeight.w300,
@@ -33,6 +33,13 @@ class _SplashViewState extends State<SplashView> {
               txtSize: 36,
             ),
           ),
+          SizedBox(
+              height: MediaQuery.of(context).size.height / 2,
+              width: MediaQuery.of(context).size.width - 40,
+              child: const Image(
+                image: AssetImage('assets/gifs/shiv.gif'),
+                fit: BoxFit.cover,
+              ))
         ],
       ),
     );
